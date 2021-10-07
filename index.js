@@ -2,15 +2,17 @@ const readlineSync = require("readline-sync");
 
 main();
 function main() {
-    const rightNumber = []
-    const userNumber = []
+
 
     for (let z = 1; ; z++) {
+        var rightNumber = []
+        var userNumber = []
         //arvo numerot
         let num = 0;
-        for (let i = 0; i < 5; i++) { //Vaihdettu viiteen
             num = Math.floor(Math.random() * 5) + 1 //vaihdettu pienenmei
-            rightNumber.push(num)
+            if (rightNumber.includes(num) === false) {
+                rightNumber.push(num);
+            }
         }
         //Pyydä käyttäjältä numerot numerot
         //validoi inputti ja ota vastaan vain teitty määrä
@@ -41,6 +43,5 @@ function main() {
 
     }
 
-
-
 }
+
