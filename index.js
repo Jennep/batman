@@ -11,18 +11,23 @@ rightNumber.push(num)
 //Pyydä käyttäjältä numerot numerot
 //validoi inputti ja ota vastaan vain teitty määrä
 
-console.log('anna 10 numeroa: ')
+console.log('give 10 numbers: ')
 for (let i = 0; i < 10; i++){
 const input= readlineSync.questionInt('');
-userNumber.push(input);
+    if (userNumber.includes(input) === false & input <99){ 
+    userNumber.push(input);
+    }
+    else if (input > 99){
+        console.log('give numbers betwean 1-99');
+        i--
+    }
+    else {
+        console.log('do not use the same numbers');
+        i--
+    }
 }
 
-/* if (userNumber.count == 10){
-    console.log(userNumber);
-  }
-
-
-*/
+console.log(rightNumber);
 console.log(userNumber);
 //ilmoita montako oikein
 
