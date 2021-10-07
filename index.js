@@ -9,6 +9,7 @@ function main() {
         var userNumber = []
         //arvo numerot
         let num = 0;
+        for (; rightNumber.length < 5;) { //Vaihdettu viiteen
             num = Math.floor(Math.random() * 5) + 1 //vaihdettu pienenmei
             if (rightNumber.includes(num) === false) {
                 rightNumber.push(num);
