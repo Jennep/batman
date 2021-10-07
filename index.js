@@ -1,34 +1,46 @@
 const readlineSync = require("readline-sync");
-//arvo numerot
-const rightNumber = []
-const userNumber =  []
-let num = 0;
-for (let i = 0; i < 10; i++){
- num = Math.floor(Math.random() * 99) + 1
-rightNumber.push(num)
+
+main();
+function main() {
+    const rightNumber = []
+    const userNumber = []
+
+    for (let z = 1; ; z++) {
+        //arvo numerot
+        let num = 0;
+        for (let i = 0; i < 5; i++) { //Vaihdettu viiteen
+            num = Math.floor(Math.random() * 5) + 1 //vaihdettu pienenmei
+            rightNumber.push(num)
+        }
+        //Pyydä käyttäjältä numerot numerot
+        //validoi inputti ja ota vastaan vain teitty määrä
+
+        console.log('give 10 numbers: ')
+        for (let i = 0; i < 5; i++) {  //Vaihdettu viiteen
+            const input = readlineSync.questionInt('');
+            if (userNumber.includes(input) === false & input < 99) {
+                userNumber.push(input);
+            }
+            else if (input > 99 | input < 1) {
+                console.log('give numbers betwean 1-99');
+                i--
+            }
+            else {
+                console.log('do not use the same numbers');
+                i--
+            }
+        }
+        console.log(rightNumber);
+        console.log(userNumber);
+        //ilmoita monesko kierros
+        //ilmoita montako oikein
+        const total = rightNumber.filter(element => userNumber.indexOf(element) !== -1);
+
+        console.log('you got ' + total.length + ' right! it was your ' + z + ' try.');
+
+
+    }
+
+
+
 }
-
-//Pyydä käyttäjältä numerot numerot
-//validoi inputti ja ota vastaan vain teitty määrä
-
-console.log('give 10 numbers: ')
-for (let i = 0; i < 10; i++){
-const input= readlineSync.questionInt('');
-    if (userNumber.includes(input) === false & input <99){ 
-    userNumber.push(input);
-    }
-    else if (input > 99){
-        console.log('give numbers betwean 1-99');
-        i--
-    }
-    else {
-        console.log('do not use the same numbers');
-        i--
-    }
-}
-
-console.log(rightNumber);
-console.log(userNumber);
-//ilmoita montako oikein
-
-//ilmoita monesko kierros
